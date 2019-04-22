@@ -29,13 +29,13 @@ export class StudentsDetailsService {
   constructor(private http: HttpClient) { }
 
   getStudents() {
-    const url = 'studentboarding/assets/student-details.json';
+    const url = 'assets/student-details.json';
 
     return this.http.get<Student[]>(url);
   }
 
   fetchStudents() {
-    const url = 'studentboarding/assets/student-details.json';
+    const url = 'assets/student-details.json';
     if (localStorage.getItem("Students") === null) {
 
     this.http.get<Student[]>(url).subscribe(data => {

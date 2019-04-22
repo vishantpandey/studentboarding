@@ -18,13 +18,13 @@ export class LoginUserDetailsService {
 users:LoginUser[];
   constructor(private http:HttpClient) { }
   getUsers(){
-    const url='studentboarding/assets/login-users.json';
+    const url='assets/login-users.json';
     return this.http.get<LoginUser[]>(url)
   }
 
   
   fetchStudents() {
-    const url = 'studentboarding/assets/student-details.json';
+    const url = 'assets/student-details.json';
     if (localStorage.getItem("Administrator") === null) {
 
     this.http.get<LoginUser[]>(url).subscribe(data => {
