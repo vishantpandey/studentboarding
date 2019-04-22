@@ -1,0 +1,25 @@
+<!-- <p>
+  list-students-info works!
+  <p-dropdown [options]="studentType" name="type" [(ngModel)]="selectedStudentType" optionLabel="label" (onChange)="onTypeChange($event)"></p-dropdown>
+</p> -->
+
+<p-toolbar >
+<div class="ui-toolbar-group-left">
+    <p-dropdown [options]="studentType" name="type" [(ngModel)]="selectedStudentType" optionLabel="label" (onChange)="onTypeChange($event)"></p-dropdown>
+
+</div>
+  <div class="ui-toolbar-group-right">
+      <input id="searchInput" type="text" size="30" pInputText [(ngModel)]="searchValue" style="margin-right: .50em" />
+      <button pButton type="button" icon="pi pi-search" (click)="searchStudent()"></button>
+     
+  </div>
+</p-toolbar>
+
+<div class="p-grid " >
+<div  *ngFor="let std of (studentsDetailService.student$ | async) ;  let i = index" class="ui-g-12 ui-md-6 ui-lg-6" >
+  <div ></div>
+<app-student-info-div [student]="std"  [studentIndex]="std.id"  ></app-student-info-div>
+
+</div>
+
+</div>

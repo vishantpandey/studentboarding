@@ -1,0 +1,153 @@
+
+      <form  [formGroup]="userform" (ngSubmit)="onSubmit(userform.value)">
+        <p-panel header={{formName}}>
+            <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        Name  <span>*</span>:
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <input pInputText type="text" formControlName="name" placeholder="Required" />
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <p-message severity="error" text="Name is required" *ngIf="!userform.controls['name'].valid&&userform.controls['name'].dirty"></p-message>
+                    </div>
+                </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        Category  <span>*</span>:
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <p-dropdown [options]="categories" formControlName="category"></p-dropdown>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <p-message severity="error" text="Category is required" *ngIf="!userform.controls['category'].valid&&userform.controls['category'].dirty"></p-message>
+                    </div>
+                </div>
+                
+              <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Domicile  <span>*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['domicile']" binary="true"  ng-required="userform.controls['category'].value='international' " ></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['domicile'].valid&&userform.controls['domicile'].dirty"></p-message>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Birth Certificaate  <span>*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['birthCertificate']" binary="true"></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['birthCertificate'].valid&&userform.controls['birthCertificate'].dirty"></p-message>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Marksheet  <span>*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['marksheet']" binary="true"></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['marksheet'].valid&&userform.controls['marksheet'].dirty"></p-message>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Police Clearance  <span  [hidden]="userform.controls['category'].value!='international'">*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['policeClearnce']" binary="true"></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['policeClearnce'].valid&&userform.controls['policeClearnce'].dirty"></p-message>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Passport <span  [hidden]="userform.controls['category'].value!='international'">*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['passport']" binary="true"></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['passport'].valid&&userform.controls['passport'].dirty"></p-message>
+                </div>
+            </div>
+
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                  Declaration <span >*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                  <p-checkbox  [formControl]="userform.controls['declaration']" binary="true"></p-checkbox>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="domicile is required" *ngIf="!userform.controls['declaration'].valid&&userform.controls['declaration'].dirty"></p-message>
+                </div>
+            </div>
+
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2">
+                        DOB <span >*</span>:
+                    </div>
+                    <div class="ui-grid-col-4">
+                      <p-calendar formControlName="dob"></p-calendar>
+                    </div>
+                    <div class="ui-grid-col-4">
+                        <p-message severity="error" text="dob is required" *ngIf="!userform.controls['dob'].valid&&userform.controls['dob'].dirty"></p-message>
+                    </div>
+                </div>
+          
+                <div class="ui-grid-row">
+                  <div class="ui-grid-col-2">
+                      Father's Name <span >*</span>:
+                  </div>
+                  <div class="ui-grid-col-4">
+                      <input pInputText type="text" formControlName="fatherName" placeholder="Required"/>
+                  </div>
+                  <div class="ui-grid-col-4">
+                      <p-message severity="error" text="Father's name is required" *ngIf="!userform.controls['fatherName'].valid&&userform.controls['fatherName'].dirty"></p-message>
+                  </div>
+              </div>
+               
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    Mother's Name <span >*</span>:
+                </div>
+                <div class="ui-grid-col-4">
+                    <input pInputText type="text" formControlName="motherName" placeholder="Required"/>
+                </div>
+                <div class="ui-grid-col-4">
+                    <p-message severity="error" text="Mother's name is required" *ngIf="!userform.controls['motherName'].valid&&userform.controls['motherName'].dirty"></p-message>
+                </div>
+            </div>
+
+                <div class="ui-grid-row">
+                    <div class="ui-grid-col-2"></div>
+                    <div class="ui-grid-col-2" >
+                        <button pButton type="submit" label="Onboard" [disabled]="!userform.valid || userform.controls['declaration'].value==false || userform.controls['domicile'].value==false || userform.controls['birthCertificate'].value==false || userform.controls['marksheet'].value==false || (userform.controls['category'].value=='international' &&  userform.controls['policeClearnce'].value==false) || (userform.controls['category'].value=='international' &&  userform.controls['passport'].value==false)"  ></button>
+                    </div>
+                    <div class="ui-grid-col-4"></div>
+                </div>
+                <div style="text-align:center;margin-top:20px" *ngIf="submitted" hidden=true>
+                    Form Submitted
+                    <br>
+                    {{diagnostic}}
+                    <input pInputText type="text" formControlName="id" placeholder="Required" />
+                </div>
+            </div>
+        </p-panel>
+    </form>

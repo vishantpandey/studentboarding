@@ -1,0 +1,31 @@
+[
+    {
+      "id":1,
+    "name":"lal",
+    "category":"domestic",
+    "domicile":true,
+    "birthCertificate":true,
+    "marksheet":true,
+    "policeClearnce":true,
+    "passport":true,
+    "declaration":true,
+    "dob":"2019-04-02T18:30:00.000Z",
+    "fatherName":"ram",
+    "motherName":"rama"
+  },
+ 
+  {
+    "id":2,
+    "name":"steve",
+    "category":"international",
+    "domicile":true,
+    "birthCertificate":true,
+    "marksheet":true,
+    "policeClearnce":true,
+    "passport":true,
+    "declaration":true,
+    "dob":"2019-04-02T18:30:00.000Z",
+    "fatherName":"adam",
+    "motherName":"eve"
+  }
+]
