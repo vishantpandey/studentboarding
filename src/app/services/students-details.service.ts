@@ -52,7 +52,7 @@ export class StudentsDetailsService {
   }
 
   fetchStudentsByCategory(category:string) {
-    const url = '/assets/student-details.json';
+    const url = 'assets/student-details.json';
     if (localStorage.getItem("Students") === null) {
 
     this.http.get<Student[]>(url).pipe( map((students: Student[] )=> students.filter(std => std.category === category))).subscribe(data => {
@@ -71,7 +71,7 @@ export class StudentsDetailsService {
   }
 
   fetchStudentsByName(name:string) {
-    const url = '/assets/student-details.json';
+    const url = 'assets/student-details.json';
     if (localStorage.getItem("Students") === null) {
 
     this.http.get<Student[]>(url).pipe( map((students: Student[] )=> students.filter(std => std.name === name))).subscribe(data => {
